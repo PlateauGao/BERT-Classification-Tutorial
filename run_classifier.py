@@ -42,22 +42,22 @@ FLAGS = flags.FLAGS
 # %%
 ## Required parameters
 flags.DEFINE_string(
-    "data_dir", None,
+    "data_dir", "./data",
     "The input data dir. Should contain the .tsv files (or other data files) "
     "for the task.")
 
 flags.DEFINE_string(
-    "bert_config_file", None,
+    "bert_config_file", "../uncased_L-12_H-768_A-12/bert_config.json",
     "The config json file corresponding to the pre-trained BERT model. "
     "This specifies the model architecture.")
 
 flags.DEFINE_string("task_name", "MRPC", "The name of the task to train.")
 
-flags.DEFINE_string("vocab_file", None,
+flags.DEFINE_string("vocab_file", "../uncased_L-12_H-768_A-12/bert_config.json",
                     "The vocabulary file that the BERT model was trained on.")
 
 flags.DEFINE_string(
-    "output_dir", None,
+    "output_dir", "./output",
     "The output directory where the model checkpoints will be written.")
 
 ## Other parameters
