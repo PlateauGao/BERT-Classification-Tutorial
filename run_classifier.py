@@ -53,7 +53,7 @@ flags.DEFINE_string(
 
 flags.DEFINE_string("task_name", 'MRPC', "The name of the task to train.")
 
-flags.DEFINE_string("vocab_file", '../uncased_L-12_H-768_A-12/bert_config.json',
+flags.DEFINE_string("vocab_file", '../uncased_L-12_H-768_A-12/vocab.txt',
                     "The vocabulary file that the BERT model was trained on.")
 
 flags.DEFINE_string(
@@ -93,7 +93,7 @@ flags.DEFINE_integer("predict_batch_size", 8, "Total batch size for predict.")
 
 flags.DEFINE_float("learning_rate", 2e-5, "The initial learning rate for Adam.")
 
-flags.DEFINE_float("num_train_epochs", 10.0,
+flags.DEFINE_float("num_train_epochs", 100.0,
                    "Total number of training epochs to perform.")
 
 flags.DEFINE_float(
@@ -289,7 +289,7 @@ class MrpcProcessor(DataProcessor):
             labels_test.append(label)
             examples.append(
                 InputExample(guid=guid, text_a=text_a, text_b=None, label=label))
-
+        random.shuffle(examples)
         return examples, labels, labels_test
 
 
